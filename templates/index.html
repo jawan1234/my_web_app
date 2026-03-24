@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My Cloud Database Site</title>
+    <style>
+        body { font-family: sans-serif; background: #f4f7f6; display: flex; flex-direction: column; align-items: center; padding: 50px; }
+        .card { background: white; padding: 20px; border-radius: 10px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); width: 300px; margin-bottom: 20px; }
+        input[type="text"] { width: 80%; padding: 10px; margin-bottom: 10px; }
+        button { background: #0070f3; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <h3>Post a Message</h3>
+        <form action="/send" method="POST">
+            <input type="text" name="content" placeholder="Type something..." required>
+            <button type="submit">Send to MongoDB</button>
+        </form>
+    </div>
+
+    <h3>Database Entries:</h3>
+    {% for msg in messages %}
+    <div class="card">
+        <p>{{ msg.content }}</p>
+        <small>{{ msg.timestamp.strftime('%H:%M:%S') }}</small>
+    </div>
+    {% endfor %}
+</body>
+</html>
