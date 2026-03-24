@@ -1,6 +1,6 @@
 import os
-from flask import Flask, render_template, request, redirect, url_for
-from pymongo import MongoClient
+from flask import Flask, render_template, request, redirect, url_for # type: ignore
+from pymongo import MongoClient # type: ignore
 from datetime import datetime
 
 app = Flask(__name__)
